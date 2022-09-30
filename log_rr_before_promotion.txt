@@ -1,0 +1,32 @@
+[ec2-user@ip-10-1-11-235 ~]$ mysql -h udacity-rds-db-rep.csa9jdxzgjl6.us-west-2.rds.amazonaws.com -P 3306 -u admin -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 234
+Server version: 8.0.28 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> use udacity;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MySQL [udacity]> SELECT * FROM TABLE01;
++-----------+-------------+
+| RECORD_ID | RECORD_NAME |
++-----------+-------------+
+|         1 | FIRST       |
+|         2 | SECOND      |
+|         3 | THIRD       |
+|         4 | Quattro     |
+|         8 | Ocho        |
+|        16 | Dieciseis   |
++-----------+-------------+
+6 rows in set (0.002 sec)
+
+MySQL [udacity]> INSERT INTO TABLE01 (RECORD_ID, RECORD_NAME) VALUES (16, 'Dieciseis');
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+MySQL [udacity]> 
+

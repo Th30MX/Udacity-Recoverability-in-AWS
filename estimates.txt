@@ -1,0 +1,17 @@
+AZ OUTAGE
+* Minimum RTO for single AZ outage event: 5 minutes
+During a planned/unplanned outage of RDS DB, AWS makes automatic failover to the replica (configured in another AZ). Failover usually takes a couple of minutes but the total time for RTO is determined by the pending transactions on the source database.
+
+* Minimum RPO for single AZ outage event: 0 minutes
+With configured Multi-AZ DB configuration and replication in place, no data loss is expected.
+
+REGION OUTAGE
+* Minimum RTO for single region outage event: 25 minutes
+During a region outage, support team needs to perform manual procedure for region failover;
+	- Promote read-only replica in DR region
+	- Perform scripts to update DB connections in applications 
+	- Perform validations 
+
+* Minimum RPO for single AZ outage event: 0 minutes
+With configured read-only replica in DR region, no data loss is expected.
+
